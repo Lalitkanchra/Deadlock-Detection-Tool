@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Deadlock Detection Graph Tool</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="hero">
+    <div class="hero-background" aria-hidden="true">
+        <span class="bubble bubble-1"></span>
+        <span class="bubble bubble-2"></span>
+        <span class="bubble bubble-3"></span>
+        <span class="bubble bubble-4"></span>
+        <span class="bubble bubble-5"></span>
+    </div>
+    <div class="hero-card">
+        <h1>Deadlock Detection Graph Tool</h1>
+        <p class="hero-copy">A modern visualization workspace for process and resource allocation, with live deadlock detection and safe-state guidance.</p>
+    </div>
+</header>
+
+<div class="container">
+
+<div class="panel">
+<button onclick="addNode('process')">Add Process</button>
+<button onclick="addNode('resource')">Add Resource</button>
+
+<br><br>
+
+<input id="from" placeholder="From (P1/R1)">
+<input id="to" placeholder="To (P1/R1)">
+<button onclick="addEdge()">Add Arrow</button>
+
+<br><br>
+
+<button onclick="detectDeadlock()">🚨 Detect Deadlock</button>
+<button onclick="clearGraph()">Clear</button>
+</div>
+
+<div>
+<div id="graph">
+<svg id="lines" width="100%" height="100%">
+    <defs>
+        <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+            <path d="M 0 0 L 8 4 L 0 8 z" fill="currentColor" />
+        </marker>
+    </defs>
+</svg>
+<div class="legend-box">
+    <div class="legend-item">
+        <span class="legend-swatch legend-process"></span>
+        Yellow circle = Process
+    </div>
+    <div class="legend-item">
+        <span class="legend-swatch legend-resource"></span>
+        Red square = Resource
+    </div>
+</div>
+</div>
+
+<div id="result"></div>
+</div>
+
+</div>
+
+<script src="script.js" defer></script>
+
+</body>
+</html>
